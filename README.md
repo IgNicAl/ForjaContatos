@@ -1,10 +1,17 @@
 # ForjaContatos
 
-ForjaContatos é um projeto desenvolvido como parte das aulas de Programação Orientada a Objetos (POO) com Python para a turma 2024.2 do NExT, na CESAR School. Este projeto visa consolidar os conceitos de POO através de uma aplicação prática e modular.
+ForjaContatos é um projeto desenvolvido como parte das aulas de **Programação Orientada a Objetos (POO)** da turma 2024.2 do NExT, na **CESAR School**. O objetivo principal é consolidar os conceitos de POO por meio de uma aplicação prática e modular.
 
-📂 ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar contatos e jogos. Este projeto foi desenvolvido com foco na implementação de conceitos de Programação Orientada a Objetos (POO), utilizando Python. Ele apresenta um design modular que facilita a expansão e manutenção do código. 
+## 📂 Visão Geral
+O projeto utiliza como base um **diagrama UML** que estrutura o gerenciamento de contatos e jogos. Com foco na implementação de princípios de POO, ele emprega **Python** para desenvolver um sistema modular que prioriza **expansão e manutenção de código**, promovendo boas práticas de desenvolvimento de software.
 
-Além disso, o ForjaContatos inclui funcionalidades que demonstram práticas de boas estruturas de software, como separação de responsabilidades, abstração e reaproveitamento de código. O sistema está dividido em módulos que gerenciam diferentes entidades, como pessoas e jogos, integrando um fluxo que possibilita a persistência de dados e uma interface gráfica intuitiva para o usuário final.
+## 🛠️ Destaques do Projeto
+
+- **Design Modular:** O sistema é organizado em módulos independentes que facilitam a manutenção e evolução do código.
+- **Boas Práticas de Software:** Implementa conceitos como **separação de responsabilidades**, **abstração** e **reutilização de código**.
+- **Gerenciamento de Entidades:** Oferece suporte ao gerenciamento de contatos e jogos, integrando diferentes entidades do sistema.
+- **Persistência de Dados:** Inclui funcionalidades que permitem armazenar informações de forma eficiente.
+- **Interface Gráfica:** Apresenta uma interface intuitiva, proporcionando uma experiência fluida para o usuário final.
 
 ---
 
