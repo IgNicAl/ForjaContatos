@@ -90,6 +90,8 @@ ForjaContatos/
   - `adicionar_jogo`: Adiciona um novo jogo ao estúdio.
   - `listar_pessoas`: Retorna uma lista com informações de todas as pessoas cadastradas.
   - `listar_jogos`: Retorna uma lista com informações de todos os jogos cadastrados.
+  - `salvar_dados_json`: Salva os dados de pessoas e jogos em um arquivo JSON.
+  - `carregar_dados_json`: Carrega os dados de pessoas e jogos a partir de um arquivo JSON.
 
 ---
 
@@ -135,6 +137,8 @@ Certifique-se de que possui os seguintes requisitos:
    - Adicionar pessoas.
    - Adicionar jogos.
    - Listar pessoas e jogos cadastrados.
+   - Salvar dados em arquivo JSON.
+   - Carregar dados de arquivo JSON.
 
 ### Exemplo de Entrada e Saída
 #### Adicionando uma Pessoa
@@ -144,7 +148,9 @@ Menu Interativo:
 2. Adicionar Jogo
 3. Listar Pessoas
 4. Listar Jogos
-5. Sair
+5. Salvar Dados
+6. Carregar Dados
+7. Sair
 Escolha uma opção: 1
 
 Nome da pessoa: João
@@ -160,3 +166,37 @@ Pessoa: João, CPF: 123.456.789-09, Endereco: Rua ABC, 123, Apto 101 - Bairro XY
 
 ---
 
+## Funcionalidades de JSON
+
+### Salvando Dados
+- O método `salvar_dados_json` salva as listas de pessoas e jogos em um arquivo JSON no formato:
+```json
+{
+  "pessoas": [
+    {
+      "nome": "João",
+      "cpf": "123.456.789-09",
+      "endereco": {
+        "logradouro": "Rua ABC",
+        "numero": "123",
+        "complemento": "Apto 101",
+        "bairro": "XYZ",
+        "cidade": "Cidade",
+        "estado": "UF"
+      }
+    }
+  ],
+  "jogos": [
+    {
+      "nome": "Jogo Exemplo",
+      "descricao": "Descrição do jogo",
+      "genero": "Aventura",
+      "status": "Ativo"
+    }
+  ]
+}
+```
+
+### Carregando Dados
+- O método `carregar_dados_json` lê um arquivo JSON e popula as listas de pessoas e jogos no programa.
+- Valida os dados antes de carregá-los para garantir a consistência.
