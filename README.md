@@ -1,6 +1,12 @@
 # ForjaContatos
 
-ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar contatos e jogos. Ele utiliza classes abstratas, herança e composição para modelar entidades como pessoas, jogos e estúdios.
+ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar contatos e jogos. Este projeto foi desenvolvido com foco na implementação de conceitos de Programação Orientada a Objetos (POO), utilizando Python. Ele apresenta um design modular que facilita a expansão e manutenção do código.
+
+---
+
+## Objetivo do Projeto
+
+O principal objetivo do projeto é demonstrar a aplicação de conceitos de POO, como herança, composição, encapsulamento e polimorfismo. Além disso, o projeto busca fornecer uma interface interativa para gerenciar entidades como pessoas, jogos e estúdios de jogos, permitindo ao usuário realizar operações como cadastro, listagem e manipulação de dados.
 
 ---
 
@@ -10,9 +16,9 @@ ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar
 
 A estrutura segue o diagrama UML apresentado, com as seguintes relações:
 
-- **Entidade (abstract):** Classe base para `Pessoa` e `Jogo`.
-- **Pessoa:** Composição com as classes `CPF` e `Endereco`.
-- **GameStudio:** Contém listas de `Pessoa` e `Jogo`.
+- **Entidade (abstract):** Classe base para `Pessoa` e `Jogo`. Fornece atributos e métodos compartilhados.
+- **Pessoa:** Composição com as classes `CPF` (para validação de CPF) e `Endereco` (para gerenciar endereços com CEP).
+- **GameStudio:** Representa um estúdio de jogos que gerencia listas de pessoas e jogos.
 
 ### Hierarquia de Arquivos
 ```plaintext
@@ -27,6 +33,63 @@ ForjaContatos/
 ├── gamestudio.py   # Classe GameStudio para gerenciar listas
 └── .gitignore      # Arquivos e pastas a serem ignorados no Git
 ```
+
+---
+
+## Descrição das Classes
+
+### `Entidade`
+- Classe abstrata que serve como base para outras entidades.
+- Atributos:
+  - `nome` (str): Nome da entidade.
+  - `ativo` (bool): Indica se a entidade está ativa.
+- Métodos:
+  - `exibir_info`: Método abstrato para exibir informações da entidade.
+  - `atualizar_ativo`: Permite atualizar o estado ativo da entidade.
+
+### `CPF`
+- Classe para manipular e validar CPFs.
+- Valida o CPF com base no algoritmo oficial de validação de dígitos verificadores.
+- Formata o CPF para exibição no formato padrão brasileiro.
+
+### `CEP`
+- Classe para buscar e manipular informações de CEPs utilizando a API ViaCEP.
+- Atributos incluem logradouro, bairro, cidade e estado.
+
+### `Endereco`
+- Classe que compõe informações detalhadas sobre endereços, integrando dados de CEP.
+- Atributos:
+  - `cep`: Instância da classe `CEP`.
+  - `numero` (str): Número da residência.
+  - `complemento` (str): Complemento do endereço.
+
+### `Pessoa`
+- Classe que representa uma pessoa física.
+- Atributos:
+  - `cpf`: Instância da classe `CPF`.
+  - `endereco`: Instância da classe `Endereco`.
+- Métodos:
+  - `exibir_info`: Exibe informações detalhadas sobre a pessoa.
+
+### `Jogo`
+- Classe que representa um jogo.
+- Atributos:
+  - `descricao` (str): Descrição do jogo.
+  - `genero` (str): Gênero do jogo.
+  - `status` (str): Status atual do jogo (ex.: ativo, descontinuado).
+- Métodos:
+  - `exibir_info`: Retorna uma representação textual do jogo.
+
+### `GameStudio`
+- Classe para gerenciar um estúdio de jogos.
+- Atributos:
+  - `pessoas`: Lista de instâncias da classe `Pessoa`.
+  - `jogos`: Lista de instâncias da classe `Jogo`.
+- Métodos:
+  - `adicionar_pessoa`: Adiciona uma nova pessoa ao estúdio.
+  - `adicionar_jogo`: Adiciona um novo jogo ao estúdio.
+  - `listar_pessoas`: Retorna uma lista com informações de todas as pessoas cadastradas.
+  - `listar_jogos`: Retorna uma lista com informações de todos os jogos cadastrados.
 
 ---
 
@@ -94,3 +157,6 @@ Complemento: Apto 101
 ```plaintext
 Pessoa: João, CPF: 123.456.789-09, Endereco: Rua ABC, 123, Apto 101 - Bairro XYZ, Cidade/UF
 ```
+
+---
+
