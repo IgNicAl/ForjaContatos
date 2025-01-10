@@ -2,9 +2,9 @@
 Módulo que contém a classe Pessoa.
 """
 
-from entidade import Entidade
-from cpf import CPF
-from endereco import Endereco
+from app.entidade import Entidade
+from app.cpf import CPF
+from app.endereco import Endereco
 
 class Pessoa(Entidade):
     """

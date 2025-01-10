@@ -3,8 +3,8 @@ Módulo para gerenciamento de estúdios de jogos.
 """
 
 import json
-from pessoa import Pessoa
-from jogo import Jogo
+from .pessoa import Pessoa
+from .jogo import Jogo
 
 class GameStudio:
     """

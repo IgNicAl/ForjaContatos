@@ -1,202 +1,147 @@
 # ForjaContatos
 
-ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar contatos e jogos. Este projeto foi desenvolvido com foco na implementação de conceitos de Programação Orientada a Objetos (POO), utilizando Python. Ele apresenta um design modular que facilita a expansão e manutenção do código.
+ForjaContatos é um projeto desenvolvido como parte das aulas de Programação Orientada a Objetos (POO) com Python para a turma 2024.2 do NExT, na CESAR School. Este projeto visa consolidar os conceitos de POO através de uma aplicação prática e modular.
+
+📂 ForjaContatos é um projeto de exemplo baseado em um diagrama UML para gerenciar contatos e jogos. Este projeto foi desenvolvido com foco na implementação de conceitos de Programação Orientada a Objetos (POO), utilizando Python. Ele apresenta um design modular que facilita a expansão e manutenção do código. 
+
+Além disso, o ForjaContatos inclui funcionalidades que demonstram práticas de boas estruturas de software, como separação de responsabilidades, abstração e reaproveitamento de código. O sistema está dividido em módulos que gerenciam diferentes entidades, como pessoas e jogos, integrando um fluxo que possibilita a persistência de dados e uma interface gráfica intuitiva para o usuário final.
+
+---
+
+## Índice
+
+- [Objetivo do Projeto](#objetivo-do-projeto)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Executar](#como-executar)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Status do Projeto](#status-do-projeto)
+- [Acesso ao Projeto](#acesso-ao-projeto)
+- [Pessoas Desenvolvedoras](#pessoas-desenvolvedoras-do-projeto)
+- [Contribuições](#contribuições)
 
 ---
 
 ## Objetivo do Projeto
 
-O principal objetivo do projeto é demonstrar a aplicação de conceitos de POO, como herança, composição, encapsulamento e polimorfismo. Além disso, o projeto busca fornecer uma interface interativa para gerenciar entidades como pessoas, jogos e estúdios de jogos, permitindo ao usuário realizar operações como cadastro, listagem e manipulação de dados.
+O principal objetivo do projeto é demonstrar a aplicação de conceitos de POO, como herança, composição, encapsulamento e polimorfismo. Além disso, o projeto busca fornecer uma interface interativa para gerenciar entidades como pessoas, jogos e estúdio de jogos, permitindo ao usuário realizar operações como cadastro, listagem e manipulação de dados.
+
+---
+
+## Funcionalidades
+
+- **Gerenciamento de Pessoas:**
+  - Adicionar pessoas ao sistema com informações como nome, CPF e endereço.
+  - Listar todas as pessoas cadastradas.
+
+- **Gerenciamento de Jogos:**
+  - Adicionar jogos com nome, descrição, gênero e status.
+  - Listar todos os jogos cadastrados.
+
+- **Persistência de Dados:**
+  - Salvar e carregar dados de pessoas e jogos em arquivos JSON.
+
+---
+
+## Tecnologias Utilizadas
+
+- **Linguagem:** Python 3
+- **Bibliotecas:**
+  - `tkinter`: Utilizado para criar a interface gráfica do sistema. Permite a interação do usuário por meio de janelas e elementos visuais.
+    - **Instalação:** `tkinter` é integrado ao Python e não requer instalação separada.
+  - `requests`: Usado para consultar a API ViaCEP, buscando dados de endereço com base no CEP fornecido.
+    - **Instalação:**
+      ```bash
+      pip install requests
+      ```
+  - `json`: Manipula dados para salvamento e leitura em arquivos JSON, garantindo persistência das informações.
+    - **Instalação:** `json` é uma biblioteca padrão do Python.
+
+---
+
+## Como Executar
+
+### Interface Gráfica
+
+Para abrir a interface gráfica, execute:
+```bash
+python main.py --gui
+```
+
+### Menu Interativo
+
+Para usar o menu interativo, execute:
+```bash
+python main.py
+```
+
+No menu interativo, você pode:
+- Adicionar pessoas.
+- Adicionar jogos.
+- Listar pessoas ou jogos.
+- Salvar ou carregar dados de arquivos JSON.
 
 ---
 
 ## Estrutura do Projeto
 
-### Diagrama UML
-
-A estrutura segue o diagrama UML apresentado, com as seguintes relações:
-
-- **Entidade (abstract):** Classe base para `Pessoa` e `Jogo`. Fornece atributos e métodos compartilhados.
-- **Pessoa:** Composição com as classes `CPF` (para validação de CPF) e `Endereco` (para gerenciar endereços com CEP).
-- **GameStudio:** Representa um estúdio de jogos que gerencia listas de pessoas e jogos.
-
-### Hierarquia de Arquivos
 ```plaintext
 ForjaContatos/
-├── main.py         # Menu interativo principal
-├── entidade.py     # Classe abstrata Entidade
-├── cpf.py          # Classe CPF para validação de CPF
-├── cep.py          # Classe CEP para consulta de endereços
-├── endereco.py     # Classe Endereco que usa CEP
-├── pessoa.py       # Classe Pessoa composta de CPF e Endereco
-├── jogo.py         # Classe Jogo herdando de Entidade
-├── gamestudio.py   # Classe GameStudio para gerenciar listas
-└── .gitignore      # Arquivos e pastas a serem ignorados no Git
+├── app/
+│   ├── cep.py          # Classe para manipulação de CEPs
+│   ├── cpf.py          # Validação de CPFs
+│   ├── endereco.py     # Classe para representação de endereços
+│   ├── entidade.py     # Classe base abstrata para outras entidades
+│   ├── gamestudio.py   # Classe principal para gerenciamento de estúdio de jogos
+│   ├── interface.py    # Interface gráfica do sistema
+│   ├── jogo.py         # Representação de um jogo
+│   ├── pessoa.py       # Representação de uma pessoa
+├── main.py             # Arquivo principal para execução do sistema
+├── .gitignore          # Arquivos e pastas ignorados pelo Git
+└── requirements.txt    # Dependências do projeto
 ```
 
 ---
 
-## Descrição das Classes
+## Status do Projeto
 
-### `Entidade`
-- Classe abstrata que serve como base para outras entidades.
-- Atributos:
-  - `nome` (str): Nome da entidade.
-  - `ativo` (bool): Indica se a entidade está ativa.
-- Métodos:
-  - `exibir_info`: Método abstrato para exibir informações da entidade.
-  - `atualizar_ativo`: Permite atualizar o estado ativo da entidade.
-
-### `CPF`
-- Classe para manipular e validar CPFs.
-- Valida o CPF com base no algoritmo oficial de validação de dígitos verificadores.
-- Formata o CPF para exibição no formato padrão brasileiro.
-
-### `CEP`
-- Classe para buscar e manipular informações de CEPs utilizando a API ViaCEP.
-- Atributos incluem logradouro, bairro, cidade e estado.
-
-### `Endereco`
-- Classe que compõe informações detalhadas sobre endereços, integrando dados de CEP.
-- Atributos:
-  - `cep`: Instância da classe `CEP`.
-  - `numero` (str): Número da residência.
-  - `complemento` (str): Complemento do endereço.
-
-### `Pessoa`
-- Classe que representa uma pessoa física.
-- Atributos:
-  - `cpf`: Instância da classe `CPF`.
-  - `endereco`: Instância da classe `Endereco`.
-- Métodos:
-  - `exibir_info`: Exibe informações detalhadas sobre a pessoa.
-
-### `Jogo`
-- Classe que representa um jogo.
-- Atributos:
-  - `descricao` (str): Descrição do jogo.
-  - `genero` (str): Gênero do jogo.
-  - `status` (str): Status atual do jogo (ex.: ativo, descontinuado).
-- Métodos:
-  - `exibir_info`: Retorna uma representação textual do jogo.
-
-### `GameStudio`
-- Classe para gerenciar um estúdio de jogos.
-- Atributos:
-  - `pessoas`: Lista de instâncias da classe `Pessoa`.
-  - `jogos`: Lista de instâncias da classe `Jogo`.
-- Métodos:
-  - `adicionar_pessoa`: Adiciona uma nova pessoa ao estúdio.
-  - `adicionar_jogo`: Adiciona um novo jogo ao estúdio.
-  - `listar_pessoas`: Retorna uma lista com informações de todas as pessoas cadastradas.
-  - `listar_jogos`: Retorna uma lista com informações de todos os jogos cadastrados.
-  - `salvar_dados_json`: Salva os dados de pessoas e jogos em um arquivo JSON.
-  - `carregar_dados_json`: Carrega os dados de pessoas e jogos a partir de um arquivo JSON.
+🚀 Em desenvolvimento. Algumas funcionalidades podem sofrer alterações ou melhorias nas próximas versões.
 
 ---
 
-## Configuração
+## Acesso ao Projeto
 
-### 1. Requisitos
-Certifique-se de que possui os seguintes requisitos:
-- Python 3.8+
-- Biblioteca `requests` para buscas de CEP.
+Para acessar os arquivos do projeto, clone o repositório:
 
-### 2. Configuração do Ambiente Virtual
-1. No terminal, crie um ambiente virtual:
-   ```bash
-   python -m venv venv
-   ```
-2. Ative o ambiente:
-   - **Windows**:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   - **Linux/Mac**:
-     ```bash
-     source venv/bin/activate
-     ```
-3. Instale a dependência:
-   ```bash
-   pip install requests
-   ```
-4. Gere o arquivo `requirements.txt`:
-   ```bash
-   pip freeze > requirements.txt
-   ```
-
----
-
-## Uso do Programa
-
-1. Execute o programa principal:
-   ```bash
-   python main.py
-   ```
-2. Utilize o menu interativo para:
-   - Adicionar pessoas.
-   - Adicionar jogos.
-   - Listar pessoas e jogos cadastrados.
-   - Salvar dados em arquivo JSON.
-   - Carregar dados de arquivo JSON.
-
-### Exemplo de Entrada e Saída
-#### Adicionando uma Pessoa
-```plaintext
-Menu Interativo:
-1. Adicionar Pessoa
-2. Adicionar Jogo
-3. Listar Pessoas
-4. Listar Jogos
-5. Salvar Dados
-6. Carregar Dados
-7. Sair
-Escolha uma opção: 1
-
-Nome da pessoa: João
-CPF da pessoa: 123.456.789-09
-CEP: 50040090
-Número: 123
-Complemento: Apto 101
-```
-#### Resultado
-```plaintext
-Pessoa: João, CPF: 123.456.789-09, Endereco: Rua ABC, 123, Apto 101 - Bairro XYZ, Cidade/UF
+```bash
+git clone https://github.com/IgNicAl/ForjaContatos.git
 ```
 
 ---
 
-## Funcionalidades de JSON
+## Pessoas Desenvolvedoras do Projeto
 
-### Salvando Dados
-- O método `salvar_dados_json` salva as listas de pessoas e jogos em um arquivo JSON no formato:
-```json
-{
-  "pessoas": [
-    {
-      "nome": "João",
-      "cpf": "123.456.789-09",
-      "endereco": {
-        "logradouro": "Rua ABC",
-        "numero": "123",
-        "complemento": "Apto 101",
-        "bairro": "XYZ",
-        "cidade": "Cidade",
-        "estado": "UF"
-      }
-    }
-  ],
-  "jogos": [
-    {
-      "nome": "Jogo Exemplo",
-      "descricao": "Descrição do jogo",
-      "genero": "Aventura",
-      "status": "Ativo"
-    }
-  ]
-}
-```
+Este projeto foi desenvolvido por:
 
-### Carregando Dados
-- O método `carregar_dados_json` lê um arquivo JSON e popula as listas de pessoas e jogos no programa.
-- Valida os dados antes de carregá-los para garantir a consistência.
+- [IgNicAl](https://github.com/IgNicAl)
+
+---
+
+## Contribuições
+
+Contribuições são bem-vindas! Siga os seguintes passos:
+
+1. Faça um fork do repositório.
+2. Crie uma nova branch para sua contribuição:
+   ```bash
+   git checkout -b minha-nova-feature
+   ```
+3. Commit suas alterações:
+   ```bash
+   git commit -m "Adiciona minha nova feature"
+   ```
+4. Faça o push para sua branch:
+   ```bash
+   git push origin minha-nova-feature
+   ```
+5. Abra um Pull Request.

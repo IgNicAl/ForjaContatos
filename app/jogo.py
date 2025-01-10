@@ -2,7 +2,7 @@
 Módulo que contém a classe Jogo.
 """
 
-from entidade import Entidade
+from .entidade import Entidade
 
 class Jogo(Entidade):
     """

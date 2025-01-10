@@ -2,7 +2,7 @@
 Módulo para representar endereços utilizando CEP.
 """
 
-from cep import CEP
+from .cep import CEP
 
 class Endereco:
     """
