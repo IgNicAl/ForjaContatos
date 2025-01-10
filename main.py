@@ -1,3 +1,7 @@
+"""
+Este módulo contém o programa principal para interagir com o GameStudio.
+"""
+
 from endereco import Endereco
 from pessoa import Pessoa
 from jogo import Jogo

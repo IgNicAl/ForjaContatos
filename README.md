@@ -94,22 +94,3 @@ Complemento: Apto 101
 ```plaintext
 Pessoa: João, CPF: 123.456.789-09, Endereco: Rua ABC, 123, Apto 101 - Bairro XYZ, Cidade/UF
 ```
-
----
-
-## Contribuindo
-1. Faça um fork do repositório.
-2. Crie uma branch para suas alterações:
-   ```bash
-   git checkout -b minha-alteracao
-   ```
-3. Commit suas alterações:
-   ```bash
-   git commit -m "Descrição do commit"
-   ```
-4. Envie para o repositório remoto:
-   ```bash
-   git push origin minha-alteracao
-   ```
-5. Abra um Pull Request no GitHub.
-
