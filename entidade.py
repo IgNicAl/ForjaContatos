@@ -1,13 +1,12 @@
 """
-Este módulo define a classe abstrata Entidade.
+Módulo que contém a classe abstrata Entidade.
 """
 
 from abc import ABC, abstractmethod
 
-
 class Entidade(ABC):
     """
-    Classe abstrata para representar uma entidade.
+    Classe abstrata que serve como base para outras entidades.
     """
 
     def __init__(self, nome: str, ativo: bool = True):
@@ -26,7 +25,7 @@ class Entidade(ABC):
         """
         Método abstrato para exibir informações da entidade.
         """
-        raise NotImplementedError("O método exibir_info precisa ser implementado.")
+        pass
 
     def atualizar_ativo(self, ativo: bool):
         """

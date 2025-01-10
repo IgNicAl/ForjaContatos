@@ -1,15 +1,12 @@
 """
-Este módulo contém a classe CPF para manipulação e validação de CPFs.
+Módulo para validação e manipulação de CPFs.
 """
-
 
 class CPFInvalidoError(Exception):
     """
-    Exceção levantada quando um CPF é inválido.
+    Exceção levantada para CPFs inválidos.
     """
-    # Não é necessário um `pass` aqui.
-    ...
-
+    pass
 
 class CPF:
     """
@@ -44,6 +41,6 @@ class CPF:
 
     def __str__(self):
         """
-        Retorna o CPF formatado.
+        Retorna o CPF formatado no padrão XXX.XXX.XXX-XX.
         """
         return f'{self.__cpf[:3]}.{self.__cpf[3:6]}.{self.__cpf[6:9]}-{self.__cpf[9:]}'

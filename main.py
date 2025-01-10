@@ -1,5 +1,5 @@
 """
-Este módulo contém o programa principal para interagir com o GameStudio.
+Programa principal para gerenciar um estúdio de jogos.
 """
 
 from endereco import Endereco
@@ -7,9 +7,8 @@ from pessoa import Pessoa
 from jogo import Jogo
 from gamestudio import GameStudio
 
-
 if __name__ == '__main__':
-    studio = GameStudio('Good Village Games')
+    studio = GameStudio('Forja Games')
 
     while True:
         print('\nMenu Interativo:')
@@ -17,7 +16,9 @@ if __name__ == '__main__':
         print('2. Adicionar Jogo')
         print('3. Listar Pessoas')
         print('4. Listar Jogos')
-        print('5. Sair')
+        print('5. Salvar Dados')
+        print('6. Carregar Dados')
+        print('7. Sair')
 
         opcao = input('Escolha uma opção: ')
 
@@ -50,6 +51,14 @@ if __name__ == '__main__':
                 print(info)
 
         elif opcao == '5':
+            arquivo = input('Nome do arquivo para salvar: ')
+            studio.salvar_dados_json(arquivo)
+
+        elif opcao == '6':
+            arquivo = input('Nome do arquivo para carregar: ')
+            studio.carregar_dados_json(arquivo)
+
+        elif opcao == '7':
             print('Saindo...')
             break
 

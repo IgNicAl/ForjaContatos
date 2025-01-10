@@ -1,5 +1,7 @@
 """
 Este módulo contém a classe CEP para manipulação de códigos postais.
+
+A classe permite buscar informações detalhadas de um CEP utilizando a API ViaCEP.
 """
 
 import requests
@@ -31,6 +33,8 @@ class CEP:
     def __buscar_cep(self):
         """
         Busca informações do CEP na API ViaCEP.
+
+        Lança uma exceção caso o CEP não seja encontrado ou a API não esteja acessível.
         """
         resposta = requests.get(f'https://viacep.com.br/ws/{self.__cep}/json/')
         if resposta.status_code != 200:
@@ -45,7 +49,7 @@ class CEP:
 
     def __repr__(self):
         """
-        Retorna uma representação em string do CEP.
+        Retorna uma representação textual das informações do CEP.
         """
         return (f'CEP: {self.__cep}, Rua: {self.__logradouro}, '
                 f'Bairro: {self.__bairro}, Cidade: {self.__cidade}, Estado: {self.__estado}')

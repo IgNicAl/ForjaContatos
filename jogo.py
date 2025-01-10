@@ -1,18 +1,17 @@
 """
-Este módulo contém a classe Jogo que herda de Entidade.
+Módulo que contém a classe Jogo.
 """
 
 from entidade import Entidade
 
-
 class Jogo(Entidade):
     """
-    Classe para representar um jogo.
+    Representa um jogo no estúdio.
     """
 
     def __init__(self, nome: str, descricao: str, genero: str, status: str):
         """
-        Inicializa um jogo.
+        Inicializa um objeto Jogo.
 
         Parâmetros:
             nome (str): Nome do jogo.
@@ -27,7 +26,6 @@ class Jogo(Entidade):
 
     def exibir_info(self):
         """
-        Retorna as informações do jogo.
+        Retorna as informações completas do jogo.
         """
-        return (f'Jogo: {self.nome}, Genero: {self.genero}, '
-                f'Status: {self.status}, Ativo: {self.ativo}')
+        return f'Jogo: {self.nome}, Genero: {self.genero}, Status: {self.status}'

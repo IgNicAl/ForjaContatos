@@ -1,20 +1,19 @@
 """
-Este módulo contém a classe Pessoa, que utiliza CPF e Endereco.
+Módulo que contém a classe Pessoa.
 """
 
 from entidade import Entidade
 from cpf import CPF
 from endereco import Endereco
 
-
 class Pessoa(Entidade):
     """
-    Classe que representa uma pessoa com CPF e Endereço.
+    Representa uma pessoa física.
     """
 
     def __init__(self, nome: str, cpf: str, endereco: Endereco):
         """
-        Inicializa um objeto Pessoa.
+        Inicializa uma pessoa física.
 
         Parâmetros:
             nome (str): Nome da pessoa.
@@ -27,6 +26,6 @@ class Pessoa(Entidade):
 
     def exibir_info(self):
         """
-        Retorna as informações da pessoa.
+        Retorna as informações completas da pessoa.
         """
         return f'Pessoa: {self.nome}, CPF: {self.cpf}, Endereço: {self.endereco}'
